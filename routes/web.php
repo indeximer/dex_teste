@@ -11,8 +11,14 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('blog/welcome');
-// });
+Route::get('/', function () {
+    return view('home/index');
+});
 
-Route::get('/', 'BlogController@index');
+Route::get('/noticias', 'NoticiasController@index');
+Route::get('/noticias/{slug}', 'NoticiasController@post');
+
+Route::get('/admin', 'AdminController@index');
+Route::get('/admin/noticias', 'AdminController@listaNoticias');
+Route::get('/admin/adicionarNoticia', 'AdminController@adicionarNoticia');
+Route::post('/admin/inserirNoticia', 'AdminController@inserirNoticia');

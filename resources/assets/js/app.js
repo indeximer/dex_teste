@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+require('./jquery.datetimepicker.js');
 
 window.Vue = require('vue');
 
@@ -15,8 +16,27 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+//Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-const app = new Vue({
-    el: '#app'
+// const app = new Vue({
+//     el: '#app'
+// });
+
+
+$('.date-field').datetimepicker({
+    lang: 'pt-BR',
+    i18n: {
+        pt: {
+            months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            dayOfWeek: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D']
+        }
+    },
+    timepicker:false,
+    format: 'd/m/Y',
+    closeOnDateSelect: true
+});
+
+$(".custom-file-input").on('change', function(){
+    var name = $(this).val();
+    $(this).parent('div').find('label').text(name);
 });
