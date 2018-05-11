@@ -13915,6 +13915,10 @@ $('.date-field').datetimepicker({
 $(".custom-file-input").on('change', function () {
     var name = $(this).val();
     $(this).parent('div').find('label').text(name);
+
+    if ($("#imagem_nome").length) {
+        $("#imagem_nome").val(name);
+    }
 });
 
 /***/ }),

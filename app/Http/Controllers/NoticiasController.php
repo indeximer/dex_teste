@@ -2,23 +2,19 @@
 
 use Illuminate\Support\Facades\DB;
 use Request;
+use dex_teste\Noticias;
 
 Class NoticiasController extends Controller{
 
     public function index(){
-        $noticias = DB::select('select * from noticias');
+        $noticias = Noticias::all();
 
         return view('noticias/index')->with('noticias',$noticias);
     }
 
-    public function post(){
-        $slug = Request::route('slug');
-        $noticia = DB::select('select * from noticias where slug = ?', [$slug]);
+    public function post($slug){
+        $noticia = Noticias::where('slug', $slug)->first();
 
-        if(empty($noticia)) {
-            return "Essa notícia não existe";
-        }
-
-        return view('noticias/post')->with('noticia',$noticia[0]);
+        return view('noticias/post')->with('noticia',$noticia);
     }
 }
