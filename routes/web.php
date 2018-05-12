@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('home/index');
 });
+Route::get('/home', 'HomeController@index');
 
 Route::get('/noticias', 'NoticiasController@index');
 Route::get('/noticias/{slug}', 'NoticiasController@post');
@@ -24,3 +25,4 @@ Route::get('/admin/adicionarNoticia', 'AdminController@adicionarNoticia');
 Route::get('/admin/adicionarNoticia/{id}', 'AdminController@adicionarNoticia');
 Route::post('/admin/inserirNoticia', 'AdminController@inserirNoticia');
 Route::get('/admin/removerNoticia/{id}', 'AdminController@removerNoticia');
+Auth::routes();

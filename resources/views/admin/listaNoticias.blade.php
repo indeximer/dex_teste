@@ -1,4 +1,4 @@
-@extends('layout/admin')
+@extends('layouts.admin')
 
 @section('conteudo')
     <div class="row py-4">
@@ -8,7 +8,7 @@
             <a href="/admin/adicionarNoticia" class="btn btn-sm btn-success"><i class="oi oi-plus"></i> Adicionar notícia</a>
 
             @if(old('titulo') != null)
-                <p class="mt-3 alert alert-success"><a href="{{'/noticias/' . str_slug(old('titulo')) }}" target="_blank"><strong>Noticia</strong></a> adicionada com sucesso</p>
+                <p class="mt-3 alert alert-success"><a href="{{'/noticias/' . str_slug(old('titulo')) }}" target="_blank"><strong>Noticia</strong></a> salva com sucesso</p>
             @endif
         </div>
     </div>
@@ -22,14 +22,15 @@
                     </div>
                 </div>
             @else
-                <ul class="list-group">
+                <ul class="list-group list-admin justify-content-between">
                     @foreach($noticias as $noticia)
                         <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            {{ $noticia->titulo }}
-                            <span>
+                            <div class="col p-0">{{ $noticia->titulo }}</div>
+                            
+                            <div class="col-auto p-0">
                                 <a href="/noticias/{{ $noticia->slug }}" target="_blank" class="badge badge-primary badge-pill" title="Ver notícia"><i class="oi oi-magnifying-glass"></i></a>
-                                <a href="/admin/adicionarNoticia/{{ $noticia->id }}" class="badge badge-primary badge-pill ml-2" title="Editar"><i class="oi oi-pencil"></i></a>
-                                <a href="/admin/removerNoticia/{{ $noticia->id }}" class="badge badge-danger badge-pill ml-2" title="Excluir"><i class="oi oi-trash"></i></a>
+                                <a href="/admin/adicionarNoticia/{{ $noticia->id }}" class="badge badge-primary badge-pill ml-1" title="Editar"><i class="oi oi-pencil"></i></a>
+                                <a href="/admin/removerNoticia/{{ $noticia->id }}" class="badge badge-danger badge-pill ml-1" title="Excluir"><i class="oi oi-trash"></i></a>
                             </span>
                         </li>
                     @endforeach

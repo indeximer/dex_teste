@@ -1,4 +1,13 @@
-@extends('layout/admin')
+@extends('layouts.admin')
+
+
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector:'.tex-editor',
+        plugins:'link'
+    });
+</script>
 
 @section('conteudo')
     <div class="row py-4">
@@ -60,7 +69,7 @@
 
                 <div class="form-group">
                     <label for="conteudo">Conteúdo</label>
-                    <textarea class="form-control" name="conteudo" id="conteudo">{{ isset($noticia) ? $noticia->conteudo:''}}</textarea>
+                    <textarea class="form-control tex-editor" name="conteudo" id="conteudo">{{ isset($noticia) ? $noticia->conteudo:''}}</textarea>
                 </div>
 
                 <button type="submit" class="btn btn-lg btn-success float-right ml-5"><i class="oi oi-box"></i> Salvar</button>

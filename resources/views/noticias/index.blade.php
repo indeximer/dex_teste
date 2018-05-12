@@ -1,4 +1,4 @@
-@extends('layout/main')
+@extends('layouts.main')
 
 @section('conteudo')
 <section class="container py-5">
@@ -22,7 +22,7 @@
                         <img class="card-img-top" src="{{ asset('storage/uploads/noticias/' . $noticia->imagem_principal) }}">
 
                         <div class="card-body">
-                            <h2 class="card-title"><?= $noticia->titulo; ?></h2>
+                            <h2 class="card-title" title="{{ $noticia->titulo }}">{{ str_limit($noticia->titulo, $limit = 32, $end = '...') }}</h2>
                             <p class="info">
                                 <span class="badge badge-dark"><i class="oi oi-calendar"></i> {{ \Carbon\Carbon::parse($noticia->data)->format('d/m/Y') }}</span>
 

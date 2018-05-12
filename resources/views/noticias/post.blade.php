@@ -1,4 +1,4 @@
-@extends('layout/main')
+@extends('layouts.main')
 
 @section('conteudo')
 <section class="container py-5">
@@ -20,7 +20,7 @@
                     <span class="badge badge-dark"><i class="oi oi-folder"></i> {{ $noticia->categoria }}</span>
                     @endif
 
-                    <p class="mt-3">{{ $noticia->conteudo }}</p>
+                    <div class="mt-3">{!! $noticia->conteudo !!}</div>
                 </div>
             </article>
         </div>

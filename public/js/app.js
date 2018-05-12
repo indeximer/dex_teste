@@ -13921,6 +13921,15 @@ $(".custom-file-input").on('change', function () {
     }
 });
 
+$(".navbar-toggler").on('click', function () {
+    $('.side-menu-wrapper').fadeToggle('fast');
+    $('.side-menu').toggleClass('active');
+});
+$('.side-menu-wrapper').on('click', function () {
+    $(this).fadeOut('fast');
+    $('.side-menu').removeClass('active');
+});
+
 /***/ }),
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
